@@ -1,0 +1,22 @@
+---
+title: "STAT 443 Statistics Project"
+author: "Group 5 (and names here)"
+date: "2022-02-22" #change to due date
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# load libraries
+require(data.table)
+```
+
+
+```{r load data}
+project_data = fread("Group5Data.csv")
+project_data = project_data[,-"CO"]
+project_data = as.data.frame(project_data)
+names(project_data) <- c("Ambient Temperature", "Ambient Pressure", "Ambient Humidity", "Air Filter Difference Pressure", "Gas Turbine Exhaust Pressure", "Turbine Inlet temperature", "Turbine After Temperature", "Compressor Discharge Pressure", "Turbine Energy Yield", "Nitrogen Oxides")
+head(project_data)
+```
+
