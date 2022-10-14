@@ -26,3 +26,14 @@ head(project_data)
 x = 2
 ```
 
+```{r}
+pairs(project_data)
+```
+
+
+```{r}
+fullmodel <- lm(project_data$`Nitrogen Oxides` ~., data = project_data)
+stepmodel <- step(fullmodel, direction = "both")
+stepmodel
+```
+
