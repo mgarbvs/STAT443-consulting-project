@@ -9,6 +9,9 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 # load libraries
 require(data.table)
+library(tidyverse)
+library(ggplot2)
+library(GGally)
 ```
 
 
@@ -22,10 +25,13 @@ head(project_data)
 
 
 
-```{r john test123}
-x = 2
+```{r fig.width= 10, fig.height= 10}
+#ggpairs(project_data )
+#pairs(project_data, col = "blue", alpha = 0.7)
+#discuss correlation, etc. 
 ```
 
+<<<<<<< HEAD
 ```{r}
 pairs(project_data)
 ```
@@ -37,3 +43,18 @@ stepmodel <- step(fullmodel, direction = "both")
 stepmodel
 ```
 
+=======
+```{r fig.width = 5, fig.height= 5}
+#library(caret)
+library(EnvStats)
+#process <- preProcess(as.data.frame(project_data[,'Turbine After Temperature']), method=c("range"))
+project_data[,'Turbine After Temperature'] = log(project_data[,'Turbine After Temperature'])
+
+ggplot(gather(project_data), aes(value)) + geom_histogram(bins = 20) + facet_wrap(~key, scales = 'free_x')
+
+
+```
+Possibly binning turbine after temperatures, check turbine inlet temperature, 
+
+#Todo: 
+>>>>>>> c25517dc708b1b300cda09d9d7ca3915e892b4d6
